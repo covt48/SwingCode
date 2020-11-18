@@ -1,2 +1,2 @@
-# swing_code
+# SwingCode
 Java实践课程练习记录
