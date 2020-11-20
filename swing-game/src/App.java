@@ -41,7 +41,7 @@ public class App {
 
 
 
-        int ran_num = (int)(Math.random()*8);
+        int ran_num = (int)(Math.random()*x.length);
         label_img.setBounds(x[ran_num],y[ran_num],100,80);
         label_background.setBounds(0,0,1024,768);
         label_score.setBounds(50,-30,200,100);
