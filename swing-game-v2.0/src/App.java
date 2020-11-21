@@ -152,7 +152,7 @@ public class App{
         //游戏结束音效
         AudioPlayer.player.start(inputStream3);
     }
-    void gameStart() throws FileNotFoundException {
+    void gameStart(){
         //游戏启动音效
         AudioPlayer.player.start(inputStream4);
 
@@ -177,6 +177,7 @@ public class App{
         java.net.URL imgUrl_bg = App.class.getResource("background.gif");
         label_background.setIcon(new ImageIcon(imgUrl_bg));
         myPanel.setLayout(null);
+        /*add顺序不要错乱*/
         myPanel.add(label_start);
         myPanel.add(label_end);
         myPanel.add(label_score);
@@ -219,7 +220,7 @@ public class App{
         //把上面修改的鼠标样式设置给frame窗口
         frame.setCursor(cu);
 
-        while(t<=5 ||status )//循环时间
+        while(t<=5 || status)//循环条件
         {
             // 计算循环总时长
             now = new Date();
