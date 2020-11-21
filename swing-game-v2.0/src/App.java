@@ -56,7 +56,7 @@ public class App{
                     t=0;
                     label_score.setLocation(50,-30);
                     label_score.setSize(200,100);
-                    label_score.setFont(new Font("宋体", Font.BOLD,24));
+                    label_score.setFont(new Font("Arial", Font.BOLD,24));
                     label_score.setText("Your Score:"+String.valueOf(score));//设置分数显示
                     label_background.setVisible(true);
                     label_img.setVisible(true);
@@ -117,7 +117,7 @@ public class App{
                             new App().lose();
                             label_score.setLocation(300,150);
                             label_score.setSize(400,150);
-                            label_score.setFont(new Font("宋体", Font.BOLD,72));
+                            label_score.setFont(new Font("Arial", Font.BOLD,64));
                             label_score.setText("Game Over!");//分数栏显示设置
                             label_yourscore.setText("Your Score:"+score);
                             label_background.setVisible(false);
@@ -194,8 +194,8 @@ public class App{
         label_end.setBounds(300,320,350,100);
         label_score.setBounds(50,-30,200,100);
         label_yourscore.setBounds(380,250,200,100);
-        label_score.setFont(new Font("宋体", Font.BOLD,24));
-        label_yourscore.setFont(new Font("宋体", Font.BOLD,24));
+        label_score.setFont(new Font("Arial", Font.BOLD,24));
+        label_yourscore.setFont(new Font("Arial", Font.BOLD,24));
         label_score.setForeground(Color.RED);
         label_yourscore.setForeground(Color.RED);
         //设置地鼠不显示
@@ -205,7 +205,7 @@ public class App{
         //初始化点击数
         click=0;
 
-        JFrame frame = new JFrame("打地鼠 V1.0");
+        JFrame frame = new JFrame("打地鼠 V2.0");
         frame.setContentPane(myPanel);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
@@ -232,14 +232,16 @@ public class App{
             new App().lose();
             label_score.setLocation(300,150);
             label_score.setSize(400,150);
-            label_score.setFont(new Font("宋体", Font.BOLD,40));
+            label_score.setFont(new Font("Arial", Font.BOLD,64));
             label_score.setText("Game Over!");//分数栏显示设置
+            label_yourscore.setText("Your Score:"+score);
             label_background.setVisible(false);
             label_startBackground.setVisible(true);
+            label_yourscore.setVisible(true);
             label_start.setVisible(true);
             label_end.setVisible(true);
-            label_start.setLocation(300,320);
-            label_end.setLocation(300,440);
+            label_start.setLocation(300,350);
+            label_end.setLocation(300,470);
             status = true;
         } catch (FileNotFoundException ex) {
             ex.printStackTrace();
