@@ -26,10 +26,10 @@ public class App{
     private int click = 0;//统计点击错误次数
 
     //初始化变量
-    private Date before=new Date();
-    private Date now=new Date();
-    private int t = 0;
-    private boolean status = true;
+    private Date now=new Date();//获取当前时间
+    private Date before=new Date();//初始化，在程序中看情况重新获取时间，用于和now对比，完成计时器效果
+    private int t = 0;//前面两个时间对比的结果，如果差距达到一定的
+    private boolean status = true; //设置一个布尔类型的
 
 
     //点击错误音效
@@ -105,7 +105,13 @@ public class App{
                 public void mouseClicked(MouseEvent e) {
                     super.mouseClicked(e);
                     label_score.setText("Your Score:"+String.valueOf(score));
-                    click++;//记录点击失败次数增加timer.cancel();//定时器取消
+                    click++;//记录点击
+                    int last_ranNum = ran_num;//记录上一次随机坐标
+                    do {//如果重新随机的坐标与上一次坐标相同，则重新随机坐标
+                        ran_num = (int)(Math.random()*x.length);
+                    }while (last_ranNum==ran_num);
+                    //变换地鼠坐标
+                    label_img.setLocation(x[ran_num],y[ran_num]);
                     before = new Date();
                     if(click<5){//5次以内的点击失败次数，提示错误音效
                         try {//调用点击错误音效
@@ -138,8 +144,6 @@ public class App{
             });
 
     }
-
-
 
 
     void error(){
