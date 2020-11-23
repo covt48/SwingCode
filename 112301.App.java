@@ -3,7 +3,7 @@ import java.util.Scanner;
 
 public class App {
 	public static void main(String[] args) throws IOException {
-		System.out.println("程序开始，请输入【1】获取R的坐标，输入【0】结束 程序：");
+		System.out.println("程序开始，请输入【1】获取R的坐标，输入【0】结束程序：");
 		Scanner scan = new Scanner(System.in);
 		while (true) {
 			int in = scan.nextInt();
