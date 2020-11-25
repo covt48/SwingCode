@@ -46,7 +46,7 @@ public class App {
         myPanel.add(textArea_A);
         myPanel.add(textArea_B);
         myPanel.add(label_back);
-        textArea_B.setText("在十字路口等红灯时，下雨了谁最先知道？\n【A】交警\n【B】程序员\n【C】路人\n");
+        textArea_B.setText("在路口等车时，下雨了谁最先知道？\n【A】交警\n【B】程序员\n【C】路人\n");
 
         JFrame frame = new JFrame("键盘监听事件");
         myPanel.setLayout(null);
