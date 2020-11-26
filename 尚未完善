@@ -1,0 +1,71 @@
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+
+public class App {
+
+    private JPanel myPanel = new JPanel();
+    private JLabel label_background = new JLabel();
+    private JLabel label_score = new JLabel();
+    int scoreList[] = new int[5];
+    int score = 0;
+    /*
+    * 144,155-144,553    450,241-450,640    819,189-819,566  719,88-719-488   507,332-507,730
+    * */
+
+    public App(){
+        myPanel.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                super.mouseClicked(e);
+                int x =e.getX();
+                int y =e.getY();
+                if (x>135 && x <155 && y>150 && y<160){
+                    scoreList[0] = 10;
+                }
+                new App().count();
+            }
+        });
+
+    }
+    void count(){
+        for (int i = 0;i<scoreList.length;i++){
+            score+=scoreList[i];
+            System.out.println(scoreList[i]);
+        }
+        label_score.setText("分数栏："+score);
+    }
+
+
+
+    void start(){
+
+        java.net.URL imgBackground = App.class.getResource("img/background.gif");
+        label_background.setIcon(new ImageIcon(imgBackground));
+        label_background.setBounds(0,0,1000,800);
+
+        label_score.setFont(new Font("宋体",Font.BOLD,24));
+        label_score.setForeground(Color.red);
+        label_score.setBounds(20,20,200,50);
+        label_score.setText("分数栏：");
+
+
+        myPanel.add(label_score);
+        myPanel.add(label_background);
+
+
+
+        JFrame frame = new JFrame("美女来找茬");
+        myPanel.setLayout(null);
+        frame.setContentPane(myPanel);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setBounds(100,100,1000,800);
+        frame.setVisible(true);
+        frame.setResizable(false);
+    }
+
+    public static void main(String[] args) {
+        new App().start();
+    }
+}
