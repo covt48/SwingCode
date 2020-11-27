@@ -8,11 +8,12 @@ public class App {
     private JPanel myPanel = new JPanel();
     private JLabel label_background = new JLabel();
     private JLabel label_score = new JLabel();
-    int scoreList[] = new int[5];
-    int score = 0;
+    private JLabel label_win = new JLabel();
+    int score1,score2,score3,score4,score5;
+    int sum = 0;
     /*
-    * 144,155-144,553    450,241-450,640    819,189-819,566  719,88-719-488   507,332-507,730
-    * */
+     * 144,155-144,553    450,241-450,640    819,189-819,566  719,88-719-488   507,332-507,730
+     * */
 
     public App(){
         myPanel.addMouseListener(new MouseAdapter() {
@@ -21,22 +22,51 @@ public class App {
                 super.mouseClicked(e);
                 int x =e.getX();
                 int y =e.getY();
-                if (x>135 && x <155 && y>150 && y<160){
-                    scoreList[0] = 10;
+                if (x>135 && x<155 && ((y>145 && y<165) || (y>540 && y<560))){
+                    score1 = 10;
                 }
-                new App().count();
+                if (x>440 && x<460 && ((y>235 && y<247) || (y>630 && y<650))){
+                    score2 = 10;
+                }
+                if (x>810 && x<830 && ((y>180 && y<200) || (y>580 && y<610))){
+                    score3 = 10;
+                }
+                if (x>710 && x<730 && ((y>80 && y<95) || (y>480 && y<500))){
+                    score4 = 10;
+                }
+                if (x>495 && x<520 && ((y>320 && y<345) || (y>720 && y<740))){
+                    score5 = 10;
+                }
+                sum = score1 + score2 + score3 + score4 + score5;
+                if(sum<50){
+                    label_score.setText("分数栏：" + sum);
+                }
+                if(sum==50){
+                    label_score.setVisible(false);
+                    label_win.setVisible(true);
+                    label_win.setText("You Win!");
+                }
+//                System.out.println(e.getX()+","+e.getY());
+            }
+        });
+
+        label_win.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                super.mouseClicked(e);
+                score1=0;
+                score2=0;
+                score3=0;
+                score4=0;
+                score5=0;
+                sum=0;
+                label_score.setVisible(true);
+                label_win.setVisible(false);
+                label_score.setText("分数栏：");
             }
         });
 
     }
-    void count(){
-        for (int i = 0;i<scoreList.length;i++){
-            score+=scoreList[i];
-            System.out.println(scoreList[i]);
-        }
-        label_score.setText("分数栏："+score);
-    }
-
 
 
     void start(){
@@ -50,13 +80,20 @@ public class App {
         label_score.setBounds(20,20,200,50);
         label_score.setText("分数栏：");
 
+        label_win.setFont(new Font("宋体",Font.BOLD,72));
+        label_win.setBounds(300,300,400,200);
+        label_win.setForeground(Color.red);
+        label_win.setVisible(false);
+        //label_score.setText("分数栏：");
+
 
         myPanel.add(label_score);
+        myPanel.add(label_win);
         myPanel.add(label_background);
 
 
 
-        JFrame frame = new JFrame("美女来找茬");
+        JFrame frame = new JFrame("来找茬");
         myPanel.setLayout(null);
         frame.setContentPane(myPanel);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
