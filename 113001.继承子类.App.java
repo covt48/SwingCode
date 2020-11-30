@@ -4,8 +4,9 @@ public class App extends R{
         System.out.print(girl_filePath+"\n");
         for(int[] a:arr2d){
             for(int b:a){
-                System.out.print(b+"\n");
+                System.out.print(b+" ");
             }
+            System.out.print("\n");
         }
     }
 }
