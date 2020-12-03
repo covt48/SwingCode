@@ -66,6 +66,9 @@ public class App {
                         label_forg1.setVisible(false);
                         label_forg2.setVisible(false);
                         label_forg3.setVisible(false);
+                        label_word1.setVisible(false);
+                        label_word2.setVisible(false);
+                        label_word3.setVisible(false);
                         label_score.setVisible(false);
                         label_win.setText("游戏成功！");
                         label_win.setVisible(true);
@@ -87,6 +90,9 @@ public class App {
                 label_forg1.setVisible(true);
                 label_forg2.setVisible(true);
                 label_forg3.setVisible(true);
+                label_word1.setVisible(true);
+                label_word2.setVisible(true);
+                label_word3.setVisible(true);
                 label_score.setVisible(true);
                 label_win.setVisible(false);
 
