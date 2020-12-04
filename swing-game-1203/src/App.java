@@ -62,16 +62,12 @@ public class App {
                     num ++;
                     score--;
                     label_score.setText("剩余青蛙："+score);
-                    if(score ==0){
-                        label_forg1.setVisible(false);
-                        label_forg2.setVisible(false);
-                        label_forg3.setVisible(false);
-                        label_word1.setVisible(false);
-                        label_word2.setVisible(false);
-                        label_word3.setVisible(false);
-                        label_score.setVisible(false);
+                    if(score == 0){
+                        myPanel.removeAll();
+                        myPanel.add(label_win);
+                        myPanel.add(label_back);
                         label_win.setText("游戏成功！");
-                        label_win.setVisible(true);
+                        myPanel.repaint();
                     }
                 }
             }
@@ -80,21 +76,27 @@ public class App {
             @Override
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
-                System.out .print(e.getX()+","+e.getY()+"\n");//控制台输出鼠标点击的坐标，方便调试
+                System.out.print(e.getX()+","+e.getY()+"\n");//控制台输出鼠标点击的坐标，方便调试
             }
         });
         label_win.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
-                label_forg1.setVisible(true);
-                label_forg2.setVisible(true);
-                label_forg3.setVisible(true);
-                label_word1.setVisible(true);
-                label_word2.setVisible(true);
-                label_word3.setVisible(true);
-                label_score.setVisible(true);
-                label_win.setVisible(false);
+
+                myPanel.removeAll();
+
+                myPanel.add(label_forg1);
+                myPanel.add(label_forg2);
+                myPanel.add(label_forg3);
+                myPanel.add(label_word1);
+                myPanel.add(label_word2);
+                myPanel.add(label_word3);
+                myPanel.add(label_score);
+                myPanel.add(label_back);
+
+                myPanel.repaint();
+
 
                 num = 1;//用于记录当前过河的青蛙
                 score = 3;//记录剩余几只青蛙没过河
@@ -145,7 +147,7 @@ public class App {
         label_win.setFont(new Font("宋体", Font.BOLD,72));
         label_win.setBounds(300,150,400,200);
         label_win.setForeground(Color.red);
-        label_win.setVisible(false);
+        label_win.setText("游戏成功！");
 
         label_word1.setFont(new Font("宋体", Font.BOLD,48));
         label_word1.setBounds(380,280,250,150);
@@ -174,7 +176,6 @@ public class App {
         myPanel.add(label_word3);
         myPanel.add(textArea_A);
         myPanel.add(label_score);
-        myPanel.add(label_win);
         myPanel.add(label_back);
 
 
